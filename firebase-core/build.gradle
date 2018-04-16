@@ -1,9 +1,9 @@
 apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
+apply plugin: 'com.novoda.bintray-release'
 
 android {
     compileSdkVersion rootProject.ext.compileSdkVersion
-    buildToolsVersion rootProject.ext.buildToolsVersion
 
     defaultConfig {
         minSdkVersion rootProject.ext.minSdkVersion
@@ -49,5 +49,12 @@ dependencies {
 
 }
 
-apply from: rootProject.file('gradle/gradle-mvn-local.gradle')
-apply from: rootProject.file('gradle/gradle-mvn-push.gradle')
+publish {
+    userOrg = 'mea'
+    groupId = 'com.wearemea.rxfirebase'
+    artifactId = 'firebase-core'
+    publishVersion = '12.0.1'
+    desc = 'RxFirebase wrapper for Firebase Authentication'
+    website = 'https://github.com/mea-licensing/rxfirebase'
+}
+
